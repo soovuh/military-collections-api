@@ -48,6 +48,8 @@ class CollectionsViewSet(ModelViewSet):
 
 
 class ContributorsViewSet(ModelViewSet):
+    authentication_classes = [authentication.TokenAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
     queryset = Contributors.objects.all()
     serializer_class = ContributorsSerializer
 
