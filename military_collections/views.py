@@ -1,5 +1,6 @@
 from django.db.models import F, Sum, DecimalField
 from django.db.models.functions import Coalesce, Cast
+from rest_framework import authentication, permissions
 from rest_framework.decorators import action
 from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
@@ -10,6 +11,8 @@ from .serializers import MilitaryCollectionsSerializer, ContributorsSerializer
 
 
 class CollectionsViewSet(ModelViewSet):
+    authentication_classes = [authentication.TokenAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
     queryset = MilitaryCollections.objects.all()
     serializer_class = MilitaryCollectionsSerializer
 
@@ -45,6 +48,8 @@ class CollectionsViewSet(ModelViewSet):
 
 
 class ContributorsViewSet(ModelViewSet):
+    authentication_classes = [authentication.TokenAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
     queryset = Contributors.objects.all()
     serializer_class = ContributorsSerializer
 
