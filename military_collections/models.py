@@ -1,6 +1,7 @@
 from django.core.validators import MinValueValidator
 from django.db import models
 
+
 class MilitaryCollections(models.Model):
     """
     Model representing military collections.
@@ -17,6 +18,7 @@ class MilitaryCollections(models.Model):
 
     def __str__(self):
         return self.title
+
 
 class Contributors(models.Model):
     """
